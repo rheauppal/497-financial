@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Ledger</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Financial Ledger</h1>
+        <h1>InvestED</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Ledger</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Ledger</a></li>
                 <li><a href="#">Progress Tracker</a></li>
                 <li><a href="registration.html">Log out</a></li>
             </ul>
@@ -22,6 +23,81 @@
     </header>
 
     <section id="ledger">
+        <h2>Manage Your Transactions</h2>
+
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+            <label for="currency">Select Currency:</label>
+            <select id="currency">
+                <option value="USD">$ USD</option>
+                <option value="EUR">€ EUR</option>
+                <option value="INR">₹ INR</option>
+            </select>
+        </div>
+
+        <!-- Form for Adding Transactions -->
+        <div class="form-container">
+            <form id="transaction-form">
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" placeholder="e.g. Salary, Rent" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="Income">Income</option>
+                        <option value="Production Costs">Production Costs</option>
+                        <option value="Shipping Costs">Shipping Costs</option>
+                        <option value="Raw Materials">Raw Materials</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Payroll">Payroll</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="custom-category-group" style="display:none;">
+                    <label for="custom-category">Custom Category:</label>
+                    <input type="text" id="custom-category" name="custom-category" placeholder="Enter custom category">
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" placeholder="e.g. 150.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="recurring">Mark as recurring:</label>
+                    <input type="checkbox" id="recurring" name="recurring">
+                </div>
+
+                <button type="submit">Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Search Transactions -->
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search transactions..." onkeyup="searchTransactions()">
+        </div>
+
+        <!-- Profit & Loss Summary -->
+        <section id="summary">
+            <h2>Profit & Loss Summary</h2>
+            <div class="summary-container">
+                <div>
+                    <h3>Total Income: </h3><span id="total-income">$0.00</span>
+                </div>
+                <div>
+                    <h3>Total Expenses: </h3><span id="total-expenses">$0.00</span>
+                </div>
+                <div>
+                    <h3>Net Profit/Loss: </h3><span id="net-profit">$0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction History Table -->
         <h2>Transaction History</h2>
         <table>
             <thead>
@@ -32,7 +108,7 @@
                     <th>Amount</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="transaction-history">
                 <tr>
                     <td>2024-10-01</td>
                     <td>Salary</td>
@@ -47,11 +123,16 @@
                 </tr>
             </tbody>
         </table>
+
+        <!-- Export to CSV Button -->
+        <button onclick="exportToCSV()">Export to CSV</button>
     </section>
 
     <footer>
-        <p>&copy; 2024 Financial Ledger</p>
+        <p>&copy; 2024 Financial Ledger for Small Businesses</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
