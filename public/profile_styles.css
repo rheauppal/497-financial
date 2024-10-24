@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2c3e50;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: #1abc9c;
+}
+
+/* Profile Section */
+.profile {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.personal-info, .financial-summary, .badges-section {
+    margin-bottom: 30px;
+}
+
+.personal-info p, .financial-summary p {
+    font-size: 1.2em;
+}
+
+/* Financial Summary Table */
+.financial-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.financial-summary th, .financial-summary td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.financial-summary th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.financial-summary td {
+    font-size: 1.2em;
+}
+
+/* Badges Section */
+.badges {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.badge {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.badge img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.badge p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.1em;
+}

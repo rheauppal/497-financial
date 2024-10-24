@@ -24,9 +24,6 @@ document.getElementById('transaction-form').addEventListener('submit', function 
     const amount = parseFloat(document.getElementById('amount').value);
     const recurring = document.getElementById('recurring').checked;
 
-    // Debugging log for form data
-    console.log("Form data:", { description, category, amount, recurring });
-
     if (!description || !category || isNaN(amount)) {
         alert("Please fill all the fields!");
         return;
@@ -60,9 +57,6 @@ function addTransactionToTable(date, description, category, amount) {
     const table = document.getElementById('transaction-history');
     const newRow = document.createElement('tr');
 
-    // Debugging log for adding transaction
-    console.log("Adding transaction:", date, description, category, amount);
-
     newRow.innerHTML = `
         <td>${date}</td>
         <td>${description}</td>
@@ -72,27 +66,6 @@ function addTransactionToTable(date, description, category, amount) {
 
     table.appendChild(newRow);
 }
-/*function addTransactionToTable(date, description, category, amount) {
-    const table = document.getElementById('transaction-history');
-
-    if (!table) {
-        console.error("Table element with id 'transaction-history' not found!");
-        return;
-    }
-
-    const newRow = document.createElement('tr');
-
-    // Properly format the transaction data and add it to the table
-    newRow.innerHTML = `
-        <td>${date}</td>
-        <td>${description}</td>
-        <td>${category}</td>
-        <td>${formatCurrency(amount)}</td>
-    `;
-
-    table.appendChild(newRow);
-}*/
-
 
 // Update the profit & loss summary
 function updateSummary(amount, category) {
@@ -160,8 +133,6 @@ function exportToCSV() {
 // Save the transaction history to localStorage
 function saveTransactionHistory() {
     const table = document.getElementById('transaction-history');
-    // Debugging log for saving transaction history
-    console.log("Saving transaction history:", table.innerHTML);
     localStorage.setItem('transactionHistory', table.innerHTML);
 }
 
@@ -169,8 +140,6 @@ function saveTransactionHistory() {
 function loadTransactionHistory() {
     const storedHistory = localStorage.getItem('transactionHistory');
     if (storedHistory) {
-        // Debugging log for loading transaction history
-        console.log("Loading transaction history:", storedHistory);
         document.getElementById('transaction-history').innerHTML = storedHistory;
     }
 }

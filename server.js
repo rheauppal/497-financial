@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // Hardcoded username and password
-const hardcodedUsername = 'Aditi';
+const hardcodedUsername = 'aditi@umich.edu';
 const hardcodedPassword = 'password123';
 
 // Middleware to parse form data
